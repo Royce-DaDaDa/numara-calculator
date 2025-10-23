@@ -74,9 +74,9 @@ function evaluateLine(line, lineIndex, lineHandle, avgs, totals, subtotals) {
     }
 
     try {
-      answer = math.evaluate(line, app.mathScope)
+      answer = math.evaluate(line.replaceAll(',', ''), app.mathScope)
     } catch {
-      answer = altEvaluate(line)
+      answer = altEvaluate(line.replaceAll(',', ''))
     }
 
     if (!answer || answer === 0) {
